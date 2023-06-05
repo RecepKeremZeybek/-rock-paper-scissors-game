@@ -29,6 +29,28 @@ rockImg.addEventListener("click",()=>{
     //* innerHtml
     //? yourChoiceDiv.innerHTML=`  <img src="./assets/rock.png" alt="rock" id="rock" />`
 })
+paperImg.addEventListener("click",()=>{
+
+
+   
+    image.src="assets/paper.png"
+    image.alt="paper"
+    yourChoiceDiv.appendChild(image)
+
+    //* innerHtml
+    //? yourChoiceDiv.innerHTML=`  <img src="./assets/rock.png" alt="rock" id="rock" />`
+})
+scissorImg.addEventListener("click",()=>{
+
+
+   
+    image.src="assets/scissor.png"
+    image.alt="scissor"
+    yourChoiceDiv.appendChild(image)
+
+    //* innerHtml
+    //? yourChoiceDiv.innerHTML=`  <img src="./assets/rock.png" alt="rock" id="rock" />`
+})
 
 
 
