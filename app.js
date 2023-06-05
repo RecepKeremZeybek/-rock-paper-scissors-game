@@ -1,60 +1,55 @@
 //* ------ Selectors ------- */
+const selectionArticle = document.querySelector(".selection")
 
-const selectionArticle = document.querySelector(".selection");
-
-//? Secilen elemanların tasıyıcısı
-const yourChoiceDiv = document.getElementById("your-choice");
+//? Secilen elemanlarin tayicilari
+const yourChoiceDiv = document.getElementById("your-choice")
+const pcChoiceDiv = document.getElementById("pc-choice")
 
 //? message
+const messagePar = document.querySelector(".message")
 
-const messagePar = document.querySelector(".message");
-
-//? score-card
-const scoreCardSection = document.querySelector(".score-card");
+//? Score
+const scoreCardSection = document.querySelector(".score-card")
+const pcScoreSpan = document.getElementById("pc-score")
+const yourScoreSpan = document.getElementById("your-score")
 
 //* ------- Variables ------- */
-let userSelectImage = document.createElement("img");
-let pcSelectImage = document.createElement("img");
-
-// colors
-const YELLOW = " #ffc538";
-const RED = "#fb778b";
-const GREEN = "#5ab7ac";
+let userSelectImg = document.createElement("img")
+let pcSelectImg = document.createElement("img")
+let pcRandom
+//? Colors
+const YELLOW = "#ffc538"
+const RED = "#fb778b"
+const GREEN = "#5ab7ac"
 
 //* ------- Event Listeners ------- */
-
 selectionArticle.addEventListener("click", (e) => {
-  //   console.log(e.target.id);
-  if (
-    e.target.id === "rock" ||
-    e.target.id === "paper" ||
-    e.target.id === "scissor"
-  ) {
-    userSelectImage.src = `assets/${e.target.id}.png`;
-    userSelectImage.alt = e.target.id;
-    yourChoiceDiv.appendChild(userSelectImage);
-    createPcSelection();
+  // console.log(e.target.id)
+  if (e.target.id) {
+    userSelectImg.src = `./assets/${e.target.id}.png`
+    userSelectImg.alt = e.target.id
+    yourChoiceDiv.appendChild(userSelectImg)
+    createPcSelection()
   }
-});
+})
 
 //* ------- Functions ------- */
 
 const createPcSelection = () => {
-  const pcArr = ["rock", "paper", "scissor"];
-  const pcRandom = pcArr[Math.floor(Math.random() * 3)];
-  pcSelectImage.src = `./assets/${pcRandom}.png`;
-  pcSelectImage.alt = pcRandom;
-  yourChoiceDiv.appendChild(pcSelectImage);
-
-  calculateResult();
-};
+  const pcArr = ["rock", "paper", "scissor"]
+  pcRandom = pcArr[Math.floor(Math.random() * 3)]
+  pcSelectImg.src = `./assets/${pcRandom}.png`
+  pcSelectImg.alt = pcRandom
+  pcChoiceDiv.appendChild(pcSelectImg)
+  calculateResult()
+}
 
 const calculateResult = () => {
-  // console.log(userSelectImage.alt)
-  // console.log(pcSelectImage.alt)
+  // console.log(userSelectImg.alt)
+  // console.log(pcSelectImg.alt)
 
-   //? Esitlik durumu
-   if (userSelectImg.alt === pcRandom) {
+  //? Esitlik durumu
+  if (userSelectImg.alt === pcRandom) {
     draw()
   } else {
     if (userSelectImg.alt === "rock") {
@@ -65,6 +60,10 @@ const calculateResult = () => {
       pcRandom === "scissor" ? youLost() : youWin()
     }
   }
+  if(pcScoreSpan.textContent==="10" || yourScoreSpan.textContent){
+    openModal()
+
+  }
 }
 
 const draw = () => {
@@ -73,9 +72,23 @@ const draw = () => {
   messagePar.style.backgroundColor = YELLOW
 }
 
-const youLost = () => {}
+const youLost = () => {
+  messagePar.textContent = "You Lost"
+  scoreCardSection.style.color = RED
+  messagePar.style.backgroundColor = RED
+  pcScoreSpan.textContent++
+}
 
-const youWin = () => {}
+const youWin = () => {
+  messagePar.textContent = "You Win"
+  scoreCardSection.style.color = GREEN
+  messagePar.style.backgroundColor = GREEN
+  yourScoreSpan.textContent++
+}
+
+const openModal=()=>{
+    
+}
 
 // //? Resimler
 
