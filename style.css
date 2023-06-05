@@ -65,3 +65,18 @@ main.container {
     border-bottom: 1px solid var(--grey);
     text-align: center;
   }
+
+  
+/** --------- IMAGES --------- */
+.selection {
+    display: flex;
+    gap: 0.8rem;
+  }
+  .selection img {
+    width: 80px;
+    border-radius: 50%;
+  }
+  .selection img:hover {
+    box-shadow: 0px 5px 20px var(--grey);
+    cursor: pointer;
+  }
