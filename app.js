@@ -18,6 +18,9 @@ const yourScoreSpan = document.getElementById("your-score")
 const modalCardSection=document.querySelector(".modal-card")
 const finalMessagePar=document.querySelector(".final-message")
 
+//? buuton
+const playAgainButton = document.getElementById("play-again")
+
 //* ------- Variables ------- */
 let userSelectImg = document.createElement("img")
 let pcSelectImg = document.createElement("img")
@@ -98,6 +101,7 @@ const openModal=()=>{
     if (yourScoreSpan.textContent===10) {
         finalMessagePar.textContent=" 🙌 You Winn! 🙌"
         document.querySelector(".modal").style.backgroundColor=GREEN
+        playAgainButton.style.color=GREEN
     }
 }
 
