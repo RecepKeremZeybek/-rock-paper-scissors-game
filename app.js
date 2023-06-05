@@ -13,6 +13,11 @@ const scoreCardSection = document.querySelector(".score-card")
 const pcScoreSpan = document.getElementById("pc-score")
 const yourScoreSpan = document.getElementById("your-score")
 
+//? modal
+
+const modalCardSection=document.querySelector(".modal-card")
+const finalMessagePar=document.querySelector(".final-message")
+
 //* ------- Variables ------- */
 let userSelectImg = document.createElement("img")
 let pcSelectImg = document.createElement("img")
@@ -30,6 +35,7 @@ selectionArticle.addEventListener("click", (e) => {
     userSelectImg.alt = e.target.id
     yourChoiceDiv.appendChild(userSelectImg)
     createPcSelection()
+    calculateResult()
   }
 })
 
@@ -41,7 +47,7 @@ const createPcSelection = () => {
   pcSelectImg.src = `./assets/${pcRandom}.png`
   pcSelectImg.alt = pcRandom
   pcChoiceDiv.appendChild(pcSelectImg)
-  calculateResult()
+  
 }
 
 const calculateResult = () => {
@@ -87,7 +93,12 @@ const youWin = () => {
 }
 
 const openModal=()=>{
-    
+    modalCardSection.classList.add("show")
+
+    if (yourScoreSpan.textContent===10) {
+        finalMessagePar.textContent=" 🙌 You Winn! 🙌"
+        document.querySelector(".modal").style.backgroundColor=GREEN
+    }
 }
 
 // //? Resimler
