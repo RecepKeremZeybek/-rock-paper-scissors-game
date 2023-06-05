@@ -93,7 +93,7 @@ section.score-card {
     width: 60%;
   }
   
-  .choices {
+  article.choices {
     display: flex;
     justify-content: center;
   }
