@@ -11,13 +11,25 @@ let userSelectImage = document.createElement("img");
 //* ------- Event Listeners ------- */
 
 selectionArticle.addEventListener("click", (e) => {
-  console.log(e.target.id);
-  if (e.target.id) {
+//   console.log(e.target.id);
+  if (
+    e.target.id === "rock" ||
+    e.target.id === "paper" ||
+    e.target.id === "scissor"
+  ) {
     userSelectImage.src = `assets/${e.target.id}.png`;
     userSelectImage.alt = e.target.id;
     yourChoiceDiv.appendChild(userSelectImage);
+    createPcSelection()
   }
 });
+
+
+
+const createPcSelection=()=>{
+    const pcArr=["rock","paper","scissor"]
+    const pcRandom=pcArr[Math.floor(Math.random()*3)]
+}
 
 // //? Resimler
 
